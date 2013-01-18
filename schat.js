@@ -123,10 +123,12 @@ var server = tls.createServer(options, function (socket) {
 
 		// Sets/Changes username
 		client.name = name;
-		
+
 		// Confirms the user that the username has been changed
 		socket.write("Username set to " + name + "\n");
 	}
+
+// You'll know what this is if you managed to install node.js (hint: it's something about ports)
 }).listen(8000);
 
 function Client(socket) {
