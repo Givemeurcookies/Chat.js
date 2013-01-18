@@ -1,3 +1,8 @@
+// This code is based a bit upon different chat servers I found on the interwebz. 
+// Thanks for the ones that uploaded examples that I could base this upon.
+// NOTE: Not totally commented yet, but schat.js is a bit similar so you could take a look at that to see if it helps
+
+// Includes neccecary modules
 var net = require("net");
 
 Array.prototype.remove = function(e) {
@@ -14,11 +19,13 @@ function Client(stream) {
 var clients = [];
 
 var server = net.createServer(function (stream) {
+
 	var client = new Client(stream);
 
 	stream.setTimeout(0);
 	stream.setEncoding("utf8");
 	clients.push(client);
+
 	stream.addListener("connect", function () {
 		stream.write("Welcome, enter your username: ");
 	});
